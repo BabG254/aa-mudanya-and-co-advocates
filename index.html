@@ -79,6 +79,15 @@
                 height: 40px;
             }
         }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .animate-marquee {
+            animation: marquee 20s linear infinite;
+            display: inline-block;
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -393,6 +402,27 @@
         </div>
     </section>
 
+     <!-- Partners Section -->
+    <section class="py-16 bg-white overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800">Our Trusted Partners</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">Collaborating with leading organizations to deliver comprehensive legal solutions</p>
+            </div>
+
+            <div class="relative">
+                <div class="partner-logos flex items-center space-x-12 animate-marquee whitespace-nowrap">
+                    <img src="https://via.placeholder.com/150x80?text=Law+Society+KE" alt="Law Society of Kenya" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                    <img src="https://via.placeholder.com/150x80?text=ICPAK" alt="ICPAK" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                    <img src="https://via.placeholder.com/150x80?text=KNCCI" alt="KNCCI" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                    <img src="https://via.placeholder.com/150x80?text=KBA" alt="Kenya Bankers Association" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                    <img src="https://via.placeholder.com/150x80?text=CMA" alt="Capital Markets Authority" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                    <img src="https://via.placeholder.com/150x80?text=NSE" alt="Nairobi Securities Exchange" class="h-16 object-contain opacity-80 hover:opacity-100 transition">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-gray-100">
         <div class="container mx-auto px-6">
@@ -467,7 +497,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-bold text-gray-800 mb-1">Phone</h4>
-                                    <p class="text-gray-600">+254 700 123456</p>
+                                    <p class="text-gray-600">+254720847047</p>
                                 </div>
                             </div>
                             
@@ -558,6 +588,16 @@
         </div>
     </footer>
 
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-8 right-8 z-50 flex flex-col space-y-3">
+        <a href="tel:+254720847047" class="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-green-700 transition transform hover:scale-110">
+            <i class="fas fa-phone-alt text-xl"></i>
+        </a>
+        <a href="https://wa.me/254720847047" class="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-lg hover:bg-[#128C7E] transition transform hover:scale-110">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
     <!-- Scripts -->
     <script>
         // Navbar scroll effect
@@ -591,6 +631,16 @@
                 }
             });
         }
+
+                // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
         
         window.addEventListener('scroll', checkScroll);
         window.addEventListener('load', checkScroll);
